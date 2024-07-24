@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    - pipeline: firstPipeline
+      source: 'FirstPipelineName'
+      trigger:
+        branches:
+          include:
+            - main
+
+pool:
+  vmImage: 'windows-latest'
+
+jobs:
+- job: RunPowerShellAfter
+  steps:
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: |
+        Write-Host "This is the second pipeline running after the first one!"
