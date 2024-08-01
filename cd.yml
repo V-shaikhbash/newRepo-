@@ -1,9 +1,11 @@
 resources:
   pipelines:
-    - pipeline: CIpipeline
+    - pipeline: CIpipleine
       source: 'CI'
       trigger:
-        - main
+        branches:
+          include:
+            - main
 
 pool:
   vmImage: 'windows-latest'
