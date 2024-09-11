@@ -21,4 +21,4 @@ jobs:
         }
     } else {
         Write-Host "devenv.exe not found. Visual Studio might not be installed."
-  displayName: 'Check Visual Studio License'
+
