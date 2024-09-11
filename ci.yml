@@ -12,14 +12,12 @@ jobs:
       targetType: 'inline'
       script: |
         $devenvPath = "$env:ProgramFiles(x86)\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe"
-    if (Test-Path $devenvPath) {
-        $result = & $devenvPath /log
-        if ($LASTEXITCODE -eq 0) {
-            Write-Host "Visual Studio is licensed and working."
+        if (Test-Path $devenvPath) {
+            $result = & $devenvPath /log
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "Visual Studio is licensed and working."
+            } else {
+                Write-Host "Visual Studio is not licensed or there is an issue with the license."
+            }
         } else {
-            Write-Host "Visual Studio is not licensed or there is an issue with the license."
-        }
-    } else {
-        Write-Host "devenv.exe not found. Visual Studio might not be installed."
-        }
-
+            Write-Host "devenv.exe not found. Visual Studio might not be installed."
